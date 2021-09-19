@@ -5,11 +5,8 @@ const Form = (props) => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    // alert if empty
-    if (task !== "") {
-      props.handleSubmit({ task, status: false });
-      setTask("");
-    } else alert("Cannot be empty");
+    props.handleSubmit({ task, status: false });
+    setTask("");
   };
 
   const handleChange = (event) => {
