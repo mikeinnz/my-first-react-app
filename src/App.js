@@ -40,15 +40,18 @@ class App extends Component {
         <p>Write what you have to do here</p>
         <Form handleSubmit={this.handleSubmit} />
         <h4>
-          <button onClick={this.handleSort} className="btn btn-warning m-2">
-            Sort
-          </button>
           <span>Total tasks: {this.state.todos.length}</span>
           <span className="m-2">
             Incomplete tasks:{" "}
             {this.state.todos.filter((t) => t.status === false).length}
           </span>
+          <button onClick={this.handleSort} className="btn btn-warning m-2">
+            Sort
+          </button>
         </h4>
+        {this.state.todos.length > 0 ? (
+          <span>To change status, you can tick on Done or the Todo name.</span>
+        ) : null}
         <Todos
           todoList={this.state.todos}
           handleDelete={this.handleDelete}
